@@ -1,92 +1,43 @@
 <template>
-  <div>
-    <!-- Hide By status Bar -->
-    <HideStatusBar
-      :productDataBystatus="productDataBystatus"
-      :hidestatus="hidestatus"
-      @update:hidestatus="hidestatus = $event"
-    />
-
-    <!-- Main Table Design -->
-    <ProductTable
-      :productDataBystatus="productDataBystatus"
-      :wwInfo="wwInfo"
-    />
-  </div>
+  <v-data-table
+    v-model:items-per-page="itemsPerPage"
+    :headers="headers"
+    :items="data"
+    item-value="name"
+    class="elevation-1 secondary"
+  ></v-data-table>
 </template>
 
 <script>
-import HideStatusBar from './HideStatusBar.vue';
-import ProductTable from './ProductTable.vue';
+import JSONdata from "../assets/data.json";
 
-import data from "../assets/data.json";
+  export default {
 
-export default {
-  components: {
-    HideStatusBar,
-    ProductTable,
-  },
-  data: function () {
-    return {
-      hidestatus: [],
-      UIData: data,
-      wwInfo: {},
-    };
-  },
-  computed: {
-    productDataBystatus() {
-      let tmp = {};
-      let data = this.UIData;
-      let statusSet = new Set();
-
-      data.forEach((element) => {
-        let status = element.Status;
-        let cores = element.Cores;
-
-        // push status to set
-        statusSet.add(status);
-
-        if(this.hidestatus !== null && Array.isArray(this.hidestatus)){
-          if (this.hidestatus.includes(status)) return; // Hide by status
-        }
-        if (!tmp[status]) tmp[status] = {};
-        if (!tmp[status][cores]) tmp[status][cores] = [];
-
-        tmp[status][cores].push(element);
-      });
-
-      // sort status in order
-      const strings = new Set(statusSet);
-      const sortedStringsArray = [...strings].sort();
-      statusSet = new Set(sortedStringsArray);
-
-      return {
-        status: [...statusSet],
-        data: tmp,
-      };
+    mounted(){
+      //process data here
+      console.log("mounted");
     },
-  },
-  mounted() {
-    this.wwInfo = this.getWWFromDate();
-  },
-  methods: {
-    getWWFromDate(date = null) {
-      let currentDate = date || new Date();
-      let startDate = new Date(currentDate.getFullYear(), 0, 1);
-      let days = Math.floor((currentDate - startDate) / (24 * 60 * 60 * 1000));
-
+    
+    data () {
+      console.log("data");
       return {
-        year: currentDate.getFullYear(),
-        workweek: Math.ceil(days / 7),
-        numofday: currentDate.getDay(),
-      };
+        itemsPerPage: 10,
+        headers: [
+          {
+            title: 'Product',
+            align: 'start',
+            sortable: false,
+            key: 'Product',
+          },
+          { title: 'Status', align: 'end', key: 'Status' },
+          { title: 'Cores', align: 'end', key: 'Cores' },
+          { title: 'Lithography', align: 'end', key: 'Lithography' },
+          { title: 'Threads', align: 'end', key: 'Threads' },
+          { title: 'Base Freq', align: 'end', key: 'Base_Freq' },
+          { title: 'Max Turbo Freq', align: 'end', key: 'Max_Turbo_Freq' },
+        ],
+        data: JSONdata
+      }
     },
-  },
-};
+  }
 </script>
-
-<style scoped>
-@import './table.css';
-/* Import the styles from table.css */
-</style>
-  

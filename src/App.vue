@@ -3,7 +3,7 @@ import TheTable from "./components/table.vue";
 </script>
 
 <template>
-  <div id="app">
+  <div id="app" style="margin: 1em;">
     <TheTable />
   </div>
 </template>
