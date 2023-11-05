@@ -1,17 +1,54 @@
-## Project Setup
 
-```sh
-npm install
+# Vue Dashboard
+
+
+This is the Dashboard SLA project, with the goal of elevataing an existing front-end application by bringing about a range of notable enhancements and improvements. I provided a cleaner, more user-friendly experience while also introducing advanced features that boost user engagement.
+
+Specific updates information can be found in the release tags.
+## Features
+
+- Light/dark mode toggle
+- Customizable Paginiation
+- Search bar
+- Colored Status
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://link-to-project
 ```
 
-### Compile and Hot-Reload for Development
+Go to the project directory
 
-```sh
-npm run dev
+```bash
+  cd my-project
 ```
 
-### Compile and Minify for Production
+Install dependencies
 
-```sh
-npm run build
+```bash
+  npm install
 ```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+
+## Authors
+
+- [@mateenshagagi](https://www.github.com/mateenshagagi)
+
+
+## Badges
+
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+

@@ -1,18 +1,20 @@
 <template>
   <v-app>
     <v-card>
-      <v-card-title>
-        Intel Cores
-        <v-spacer></v-spacer>
-        <v-text-field 
-          v-model="search" 
-          append-icon="mdi-magnify" 
-          label="Search" 
-          single-line 
-          hide-details>
-        </v-text-field>
-      </v-card-title>
+        <v-card-title>
+          Intel Cores
+          <v-spacer></v-spacer>
+          <v-text-field 
+            v-model="search" 
+            append-icon="mdi-magnify" 
+            label="Search" 
+            single-line 
+            hide-details>
+          </v-text-field>
+          <v-switch @change="toggleTheme"  :label="`toggle ${switchLabel} mode`"></v-switch>
 
+        </v-card-title>
+        
       <v-data-table 
         v-model:items-per-page="itemsPerPage" 
         :headers="headers" 
@@ -30,10 +32,13 @@
 
 <script>
 import JSONdata from "../assets/data.json";
+import { useTheme } from "vuetify/lib/framework.mjs";
 
 export default {
   data() {
     return {
+      theme : useTheme(),
+      darkMode: true,
       search: '',
       itemsPerPage: 100,
       headers: [
@@ -58,6 +63,15 @@ export default {
         default: ''
       }
     },
+    toggleTheme () {
+      this.theme.global.name = this.darkMode ? "light" : "dark";
+      this.darkMode = !this.darkMode;
+    }
   },
+  computed: {
+    switchLabel: function () {
+        return this.darkMode ? 'light' : 'dark';
+    }
+  }
 };
 </script>

@@ -11,6 +11,7 @@ import { VSpacer } from 'vuetify/lib/components/index.mjs';
 import { VTextField } from 'vuetify/lib/components/index.mjs';
 import { VCard } from 'vuetify/lib/components/index.mjs';
 import { VApp } from 'vuetify/lib/components/index.mjs';
+import { VSwitch } from 'vuetify/lib/components/index.mjs';
 import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
   
   const vuetify =  createVuetify({
@@ -21,10 +22,18 @@ import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loade
       VSpacer,
       VTextField,
       VCard,
-      VApp
+      VApp,
+      VSwitch,
     },
     icons: {
         iconfont: 'mdi', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+    },
+    theme: {
+      defaultTheme: 'dark',
+      themes: {
+        dark: true,
+        light: false,
+      }
     }
   })
 
