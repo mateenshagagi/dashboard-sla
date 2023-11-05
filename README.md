@@ -21,12 +21,6 @@ Clone the project
   git clone https://github.com/mateenshagagi/dashboard-sla.git
 ```
 
-Go to the project directory
-
-```bash
-  cd dashboard-sla
-```
-
 Install dependencies
 
 ```bash
