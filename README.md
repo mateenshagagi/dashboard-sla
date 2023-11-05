@@ -18,7 +18,7 @@ Specific updates information can be found in the release tags.
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/mateenshagagi/dashboard-sla.git
 ```
 
 Go to the project directory
@@ -33,12 +33,17 @@ Install dependencies
   npm install
 ```
 
-Start the server
+Compile and Hot-Reload for Development
 
 ```bash
-  npm run start
+  npm run dev
 ```
 
+Compile and Minify for Production
+
+```bash
+  npm run build
+```
 
 ## Authors
 

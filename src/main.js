@@ -5,14 +5,9 @@ import App from './App.vue'
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import { VDataTable } from "vuetify/labs/VDataTable";
-import { VChip } from 'vuetify/lib/components/index.mjs';
-import { VCardTitle } from 'vuetify/lib/components/index.mjs';
-import { VSpacer } from 'vuetify/lib/components/index.mjs';
-import { VTextField } from 'vuetify/lib/components/index.mjs';
-import { VCard } from 'vuetify/lib/components/index.mjs';
-import { VApp } from 'vuetify/lib/components/index.mjs';
-import { VSwitch } from 'vuetify/lib/components/index.mjs';
-import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
+import { VCardTitle, VSpacer, VTextField, VChip, VCard, VApp, VSwitch } from 'vuetify/lib/components/index.mjs';
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
+
   
   const vuetify =  createVuetify({
     components: {
@@ -26,7 +21,11 @@ import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loade
       VSwitch,
     },
     icons: {
-        iconfont: 'mdi', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+      defaultSet: 'mdi',
+      aliases,
+      sets: {
+        mdi,
+      },
     },
     theme: {
       defaultTheme: 'dark',
